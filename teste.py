@@ -1,6 +1,8 @@
-idade = int(input("Digite um valor para idade: "))
+import tkinter as tk
 
-if idade >= 18:
-    print("Maior de idade!")
-else:
-    print("Menor de idade!")
+janela = tk.Tk()
+
+janela.title("Minha primeira janela")
+janela.geometry("400x300")
+
+janela.mainloop()

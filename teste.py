@@ -1,32 +1,30 @@
 import tkinter as tk
 
-def calcular_tripo():
+def calcular_soma():
     try:
-        numero = int(entrada.get())
-        resultado = numero * 3
-        label_resultado.config(text=f"O triplo de {numero} é {resultado}.")
-    except ValueError:
-        label_resulatdo.config(text="Por favor, insira um número válido.")        
+        numero1 = float(entrada1.get())
+        numero2 = float(entrada2.get())
         
+        soma = numero1 + numero2
+        label_resultado.config(text=f"A soma de {numero1} e {numero2} é {soma}.")
+    except ValueError:
+        label_resultado.config(text="Por favor, insira números válidos.")        
+
 janela = tk.Tk()
-janela.title("Calculadora de Triplo")        
+janela.title("Calculadora de soma")        
+janela.geometry("400x300")
 
-largura = 400
-altura = 200
-largura_tela = janela.winfo_screenwidth()
-altura_tela = janela.winfo_screenheight()
-x = (largura_tela // 2) - (largura // 2)
-y = (altura_tela // 2) - (altura // 2)
+label1 = tk.Label(janela, text="Digite o primeiro número: ")
+label1.pack(pady=5)
+entrada1 = tk.Entry(janela)
+entrada1.pack(pady=5)
 
-janela.geometry(f"{largura}x{altura}+{x}+{y}")
+label2 = tk.Label(janela, text="Digite o segundo número: ")
+label2.pack(pady=5)
+entrada2 = tk.Entry(janela)
+entrada2.pack(pady=5) 
 
-label_instrucao = tk.Label(janela, text="Digite um número para calcular o triplo: ", font=("Arial", 12))
-label_instrucao.pack(pady=10)
-
-entrada = tk.Entry(janela, font=("Arial", 14))
-entrada.pack(pady=10)  
-
-botao_calcular = tk.Button(janela, text="Calcular", command=calcular_tripo)
+botao_calcular = tk.Button(janela, text="Calcular soma", command=calcular_soma)
 botao_calcular.pack(pady=10)
 
 label_resultado = tk.Label(janela, text="", font=("Arial", 14))
